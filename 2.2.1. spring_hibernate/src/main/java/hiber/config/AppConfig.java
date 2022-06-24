@@ -46,6 +46,7 @@ public class AppConfig {
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
         factoryBean.setHibernateProperties(props);
+        // 3. Добавьте этот (Car.class)класс в настройки hibernate.
         factoryBean.setAnnotatedClasses(User.class, Car.class);
         return factoryBean;
     }

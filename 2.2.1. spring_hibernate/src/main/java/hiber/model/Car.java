@@ -2,15 +2,17 @@ package hiber.model;
 
 import javax.persistence.*;
 
+//2. Создайте сущность Car с полями String model и int series, на которую будет ссылаться User с помощью связи one-to-one
+
 @Entity
 @Table(name = "cars")
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int series;
 
-    @Column(name = "model", unique = true)
+    @Column(name = "model")
     private String model;
 
     public Car() {
@@ -34,5 +36,12 @@ public class Car {
 
     public void setSeries(int series) {
         this.series = series;
+    }
+
+    @Override
+    public String toString() {
+        return "Car: \n" +
+               "series = " + series + "\n" +
+               "model = " + model + '\n';
     }
 }
